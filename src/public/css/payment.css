@@ -1,0 +1,56 @@
+.payment{
+    width: 40%;
+    margin-top: 6vh;
+    margin-left: 5%;
+}
+
+.checkout-form{
+    width: 100%;
+    margin: 3vh 0;
+}
+
+.form-input{
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.form-input label{
+    display: inline-block;
+    width: 35%;
+}
+
+.checkout-form input{
+    width: 63%;
+    height: 4vh;
+    margin: 0;
+    padding: 0 3%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.form-btn{
+    margin-top: 3vh;
+    width: 99%;
+    text-align: right;
+}
+
+.form-btn input{
+    width: 30%;
+    height: 4vh;
+    padding: 0.5vh 2%;
+    border: none;
+    color: #fff;
+    background-color: #0b5bef;
+    border-radius: 5px;
+    font-size: large;
+}
+
+@media screen and (max-width:768px){
+    .payment{
+        width: 80%;
+    }
+}
+
+
+

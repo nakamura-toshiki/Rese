@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f5f5f5;
+}
+
+.app{
+    width: 86%;
+    margin: 3vh auto;
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.header{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu-button {
+    position: absolute;
+    padding: 22px 10px;
+    z-index: 15;
+    cursor: pointer;
+    user-select: none;
+    background-color: #0b5bef;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px #A9A9A9;
+}
+
+.menu-button span {
+    height: 1.5px;
+    width: 25px;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+    display: block;
+    transition: all .2s ease-in-out;
+}
+
+.menu-button span:before {
+    top: -8px;
+    width: 12px;
+    visibility: visible;
+}
+
+.menu-button span:after {
+    top: 8px;
+    width: 8px;
+}
+
+.menu-button span:before, .menu-button span:after {
+    height: 1.5px;
+    border-radius: 2px;
+    background-color: #fff;
+    position: absolute;
+    content: "";
+    transition: all .2s ease-in-out;
+}
+
+.menu-button:hover span, .menu-button:hover span:before, .menu-button:hover span:after {
+    background: #fff;
+}
+
+input[type=checkbox] {
+    display: none; 
+
+}
+
+input[type=checkbox]:checked ~ .menu {
+    visibility: visible; 
+}
+
+input[type=checkbox]:checked ~ .menu-button:hover span, input[type=checkbox]:checked ~ .menu-button span {
+    background: transparent;
+}
+
+input[type=checkbox]:checked ~ .menu-button span:before {
+    transform: rotate(45deg) translate(5px, 6px);
+    width: 25px;
+}
+
+input[type=checkbox]:checked ~ .menu-button span:after {
+    transform: rotate(-45deg) translate(5px, -7px);
+    width: 25px;
+}
+
+.menu {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 30vh;
+    z-index: 10;
+    visibility: hidden;
+    position: fixed;
+    background-color:#f5f5f5;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.menu-lists {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 0;
+    list-style-type: none;
+    line-height: 2.0;
+}
+
+.menu-list li{
+    padding: 1em;
+}
+
+.menu-link{
+    color: #0b5bef;
+    text-decoration: none;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.logout-button{
+    color: #0b5bef;
+    background-color: #f5f5f5;
+    border: none;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.menu-link:hover,
+.logout-button:hover {
+    color: #000!important;
+}
+
+.title{
+    margin-top: 3vh;
+    margin-left: 5%;
+    color: #0b5bef;
+    z-index: 1;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+@media screen and (max-width: 768px){
+    .menu-button{
+        padding: 15px 6px;
+    }
+    .menu-button span{
+        width: 20px;
+    }
+    .menu-button span:before{
+        top: -6px;
+        width: 10px;
+    }
+    .menu-button span:after{
+        top: 6px;
+        width: 6px;
+    }
+    input[type=checkbox]:checked ~ .menu-button span:before{
+        transform: rotate(45deg) translate(6px, 4px);
+        width: 18px;
+    }
+    input[type=checkbox]:checked ~ .menu-button span:after{
+        transform: rotate(-45deg) translate(4px, -3px);
+        width: 18px;
+    }
+    .title{
+        margin-left: 7%;
+        font-size: 1.5em;
+    }
+}

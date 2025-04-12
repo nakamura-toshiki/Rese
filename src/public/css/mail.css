@@ -1,0 +1,53 @@
+.mail{
+    width: 60%;
+    margin: 3vh auto;
+}
+
+.success{
+
+}
+
+.mail-heading{
+    font-size: 2em;
+}
+
+.mail-form{
+    width: 100%;
+}
+
+.mail-form label{
+    color: #0b5bef;
+    font-size: 1.5em;
+}
+
+.mail-form input{
+    width: 100%;
+    height: 5vh;
+    padding: 0.5vh 2%;
+    font-size: large;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.mail-form textarea{
+    width: 100%;
+    height: 38vh;
+    padding: 1.5vh 2%;
+    font-size: 1.5em;
+    line-height: 1.5;
+    border-radius: 5px;
+}
+
+.form-btn{
+    width: 100%;
+    height: 4vh;
+    text-align: center;
+}
+
+.form-btn input{
+    color: #fff;
+    background-color: #0b5bef;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
