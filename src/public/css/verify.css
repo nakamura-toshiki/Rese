@@ -1,0 +1,22 @@
+.mail{
+    width: 50%;
+    margin: 15vh auto;
+    text-align: center;
+}
+
+.mail-content{
+    font-size: large;
+    font-weight: bold;
+}
+
+.mail-content__txt{
+    margin-bottom: 5vh;
+}
+
+.mail-link{
+    color: #0b5bef;
+}
+
+.mail-resend__form{
+    margin-top: 5vh;
+}

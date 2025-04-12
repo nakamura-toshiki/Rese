@@ -1,0 +1,187 @@
+.list{
+    width: 80%;
+    margin: 5vh auto;
+}
+
+@media screen and (max-width: 768px){
+    .list{
+        width: 80%;
+    }
+}
+
+.list-heading{
+    font-size: 2em;
+}
+
+.list-month{
+    width: 90%;
+    height: 6vh;
+    margin: 5vh auto 0;
+    padding: 0 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0b5bef;
+    border-radius: 10px;
+}
+
+.previous{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+}
+
+.next{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.previous-link{
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.previous-arrow{
+    display: inline-block;
+    transform: rotate(180deg) translateY(-10%);
+}
+
+.next-link{
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.current{
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    height: 100%;
+}
+
+.current-img{
+    height: 45%;
+}
+
+.current-date{
+    color: #fff;
+    font-weight: bold;
+}
+
+.list-content{
+    width: 90%;
+    margin: 5vh auto 0;
+    border: 1px solid #0b5bef;
+    background-color: #0b5bef;
+    border-radius: 10px;
+}
+
+.list-content__columns {
+    padding: 1vh 0 1vh 5%;
+    display: flex;
+}
+
+.list-content__row{
+    padding: 1vh 0 1vh 5%;
+    display: flex;
+    border-bottom: 2px solid #0b5bef;
+    background-color: #fff;
+}
+
+.list-content__row.after-status{
+    background-color: #DCDCDC;
+}
+
+.list-content__column,
+.list-content__record{
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.list-content__column{
+    color: #fff;
+    flex: 1;
+    text-align: left;
+}
+
+.list-content__column-check{
+    color: #fff;
+    flex: 0.7;
+}
+
+.list-content__record{
+    flex: 1;
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
+}
+
+.list-content__record-check{
+    flex: 0.7;
+    font-weight: bold;
+    text-align: center;
+}
+
+.list-content__row:last-of-type{
+    border-bottom: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.check-btn{
+    padding: 0;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.check-btn.checked{
+    background-color: #DCDCDC;
+}
+
+.icon{
+    font-size: 1.5em;
+}
+
+.icon.checked{
+    font-size: 1.3em;
+}
+
+@media screen and (max-width: 768px){
+    .list{
+        width: 90%;
+    }
+    .list-heading{
+        font-size: 1.6em;
+    }
+}
+
+.review-list__column{
+    color: #fff;
+    flex: 0.6;
+}
+
+.review-list__last-column{
+    color: #fff;
+    flex: 2.2;
+    text-align: left;
+}
+
+.review-list__record{
+    flex: 0.6;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.review-list__last-record{
+    flex: 2.2;
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
+}

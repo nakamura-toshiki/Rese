@@ -1,0 +1,38 @@
+.done{
+    width: 35%;
+    margin: 0 auto;
+    padding: 8vh 0 9vh;
+    background-color: #fff;
+    box-shadow: 3px 3px 2px #8d8d8b;
+    border-radius: 5px;
+}
+
+.done-message{
+    text-align: center;
+    margin-bottom: 5vh;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.login,
+.back{
+    text-align: center;
+}
+
+.login-link,
+.back-link{
+    padding: 0.5vh 4%;
+    border-radius: 5px;
+    background-color: #0b5bef;
+    color: #fff;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px){
+    .done{
+        width: 50%;
+    }
+    .done-message{
+        font-size: 1.3em;
+    }
+}
