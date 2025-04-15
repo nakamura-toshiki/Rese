@@ -84,8 +84,10 @@ class OwnerTest extends TestCase
     {
         $user = User::skip(1)->first();
 
-        Storage::fake('public');
+        Storage::fake('s3');
         $image = UploadedFile::fake()->image('test.jpg');
+
+        $expectedPath = 'images/' . $image->getClientOriginalName();
 
         $response = $this->actingAs($user, 'owner')->from(route('owner.register'))->post(route('owner.store'), [
             'image' => $image,
@@ -94,6 +96,8 @@ class OwnerTest extends TestCase
             'category_id' => 1,
             'description' =>'create shop test',
         ]);
+
+        Storage::disk('s3')->assertExists($expectedPath);
 
         $this->assertDatabaseHas('shops', [
             'name' => 'test',
@@ -106,8 +110,10 @@ class OwnerTest extends TestCase
         $user = User::skip(1)->first();
         $shop = Shop::factory()->create(['user_id' => $user->id,]);
 
-        Storage::fake('public');
+        Storage::fake('s3');
         $image = UploadedFile::fake()->image('test.jpg');
+
+        $expectedPath = 'images/' . $image->getClientOriginalName();
 
         $response = $this->actingAs($user, 'owner')->from(route('owner.detail', $shop->id))->post(route('owner.edit', $shop->id), [
             'user_id' => $user->id,
@@ -118,17 +124,16 @@ class OwnerTest extends TestCase
             'description' =>'edit shop test',
         ]);
 
-        Storage::disk('public')->assertExists('images/test.jpg');
+        Storage::disk('s3')->assertExists($expectedPath);
 
-        $savedImage = 'storage/images/test.jpg';
         $this->assertDatabaseHas('shops', [
             'id' => $shop->id,
-            'image' => 'storage/images/test.jpg',
             'name' => 'test',
             'area_id' => 1,
             'category_id' => 1,
             'description' =>'edit shop test',
         ]);
+        $this->assertTrue(str_contains(Shop::find($shop->id)->image, 'images/test.jpg'));
         $response->assertRedirect(route('owner.shop'));
     }
 
