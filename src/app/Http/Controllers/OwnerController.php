@@ -56,9 +56,7 @@ class OwnerController extends Controller
         $user_id = auth()->id();
 
         $file_name = $request->file('image')->getClientOriginalName();
-        Storage::disk('s3')->putFileAs('images', $request->file('image'), $file_name);
-        
-        $url = Storage::disk('s3')->url('images/' . $file_name);
+        Storage::disk('public')->putFileAs('images', $request->file('image'), $file_name);
 
         Shop::create([
             'user_id' => $user_id,
@@ -66,7 +64,7 @@ class OwnerController extends Controller
             'area_id' => $request->input('area_id'),
             'category_id' => $request->input('category_id'),
             'description' => $request->input('description'),
-            'image' => $url,
+            'image' => 'storage/images/' . $file_name,
         ]);
 
         return redirect()->route('owner.shop');
@@ -87,9 +85,7 @@ class OwnerController extends Controller
         $shop = Shop::find($shop_id);
 
         $file_name = $request->file('image')->getClientOriginalName();
-        Storage::disk('s3')->putFileAs('images', $request->file('image'), $file_name);
-
-        $url = Storage::disk('s3')->url('images/' . $file_name);
+        Storage::disk('public')->putFileAs('images', $request->file('image'), $file_name);
 
         $shop->update([
             'user_id' => $user_id,
@@ -97,7 +93,7 @@ class OwnerController extends Controller
             'area_id' => $request->input('area_id'),
             'category_id' => $request->input('category_id'),
             'description' => $request->input('description'),
-            'image' => $url,
+            'image' => 'storage/images/' . $file_name,
         ]);
 
         return redirect()->route('owner.shop');
