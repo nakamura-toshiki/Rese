@@ -8,7 +8,7 @@
 ・phpMyAdmin：http://localhost:8080/  
 ・本番環境：http://52.199.49.47  
 ・店舗代表者ログイン：http://localhost/owner/login  
-  ※本番環境（localhost->52.199.49.47に変更)
+  ※本番環境（localhost->52.199.49.47に変更)  
 ・管理者ログイン：http://localhost/admin/login  
   ※本番環境（localhost->52.199.49.47に変更)
 # 環境構築
