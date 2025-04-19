@@ -36,4 +36,24 @@
 -リマインダー送信  
 -QRコード発行  
 -決済機能
+## 使用技術
+・php 7.4.9  
+・Laravel 8  
+・mysql 8.0.26  
+・nginx 1.21.1  
+(本番環境)
+AWS　EC2,S3,RDS使用
 # 環境構築
+## デフォルトユーザー
+管理者  
+name: admin  
+email: admin@example.com  
+pass: admin12345  
+店舗代表者
+name: owner  
+email: owner@example.com  
+pass: owner12345  
+一般ユーザー
+name: user  
+email: user@example.com  
+pass: user12345  
