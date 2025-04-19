@@ -70,9 +70,10 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
-4. php artisan key:generate  
-5. php artisan migrate  
-6. php artisan db:seed
+4. php artisan key:generate
+5. php artisan storage:link 
+6. php artisan migrate  
+7. php artisan db:seed
 ### メール認証
 mailtrapを使用
 1. 次のリンクから会員登録　
@@ -84,17 +85,95 @@ mailtrapを使用
 ### EC2接続
 ssh -i ~/.ssh/Rese-ec2.pem ec2-user@ec2-52-199-49-47.ap-northeast-1.compute.amazonaws.com
 ### Dockerビルド
-1. 
+1. https://github.com/nakamura-toshiki/Rese.git
+2. docker-compose exec up -d --build
+### Laravel環境構築
+1. docker-compose exec php bash  
+2. composer install  
+3. cp .env.example .env,環境変数を変更  
+``` text
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=http://52.199.49.47
+
+DB_CONNECTION=mysql
+DB_HOST=coachtech-rese-rds.cl64m668oofp.ap-northeast-1.rds.amazonaws.com
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=admin
+DB_PASSWORD=coachtech-rese-rds
+
+FILESYSTEM_DISK=s3
+AWS_ACCESS_KEY_ID=AKIAQMNZPLKECUQEHJMM
+AWS_SECRET_ACCESS_KEY=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
+AWS_DEFAULT_REGION=ap-northeast-1
+AWS_BUCKET=coachtech-rese-toshiki
+AWS_URL=https://coachtech-rese-toshiki.s3.amazonaws.com
+```
+4. php artisan key:generate
+5. php artisan migrate  
+6. php artisan db:seed
+7. storageの変更
+   - src/resources/views/の
+     ``` text
+     <img src="{{ asset('storage/images/画像ファイル名') }}">  ←こうなっている箇所全て
+     ```
+     ``` text
+      <img src="{{ Storage::disk('s3')->url('images/画像ファイル名') }}">  ←これに修正
+     ```
+   - src/app/Http/Controllers/OwnerController.phpにて、storeメソッドとshopEditメソッドを以下のように修正
+   ``` text
+     public function store(ShopRequest $request)
+    {
+        $user_id = auth()->id();
+
+        $file_name = $request->file('image')->getClientOriginalName();
+        Storage::disk('s3')->putFileAs('images', $request->file('image'), $file_name);
+
+        $url = Storage::disk('s3')->url('images/' . $file_name);
+
+        Shop::create([
+            'user_id' => $user_id,
+            'name' => $request->input('name'),
+            'area_id' => $request->input('area_id'),
+            'category_id' => $request->input('category_id'),
+            'description' => $request->input('description'),
+            'image' => $url,
+        ]);
+
+        return redirect()->route('owner.shop');
+    }
+     public function shopEdit(ShopRequest $request, $shop_id)
+    {
+        $user_id = auth()->id();
+        $shop = Shop::find($shop_id);
+
+        $file_name = $request->file('image')->getClientOriginalName();
+        Storage::disk('s3')->putFileAs('images', $request->file('image'), $file_name);
+
+        $url = Storage::disk('s3')->url('images/' . $file_name);
+
+        $shop->update([
+            'user_id' => $user_id,
+            'name' => $request->input('name'),
+            'area_id' => $request->input('area_id'),
+            'category_id' => $request->input('category_id'),
+            'description' => $request->input('description'),
+            'image' => $url,
+        ]);
+
+        return redirect()->route('owner.shop');
+   ```
 ## デフォルトユーザー
-管理者  
+### 管理者  
 name: admin  
 email: admin@example.com  
 pass: admin12345  
-店舗代表者
+### 店舗代表者
 name: owner  
 email: owner@example.com  
 pass: owner12345  
-一般ユーザー
+### 一般ユーザー
 name: user  
 email: user@example.com  
 pass: user12345  
