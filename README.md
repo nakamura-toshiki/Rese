@@ -45,7 +45,12 @@
 AWS　EC2,S3,RDS使用
 ## テーブル設計
 ![user](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151743.png)
-![shop]
+![shop](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151804.png)
+![area](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151835.png)
+![category](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151856.png)
+![like](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151919.png)
+![reservation](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151932.png)
+![review](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151951.png)
 # 環境構築
 ## デフォルトユーザー
 管理者  
