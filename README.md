@@ -54,6 +54,37 @@ AWS　EC2,S3,RDS使用
 ## ER図
 ![ER図](https://github.com/nakamura-toshiki/Rese/blob/main/.drawio.png)
 # 環境構築
+## テスト環境
+### Dockerビルド
+1. git clone git@github.com:nakamura-toshiki/Rese.git  
+2. docker-compose up -d --build
+### Laravel環境構築
+1. docker-compose exec php bash  
+2. composer install  
+3. cp .env.example .env,環境変数を変更  
+``` text
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
+```
+4. php artisan key:generate  
+5. php artisan migrate  
+6. php artisan db:seed
+### メール認証
+mailtrapを使用
+1. 次のリンクから会員登録　
+   https://mailtrap.io/
+2. メールボックスのIntegrationsから 「laravel 7.x and 8.x」を選択　
+3. .envファイルのMAIL_MAILERからMAIL_ENCRYPTIONまでの項目をコピー＆ペースト　
+4. MAIL_FROM_ADDRESSに任意のメールアドレスを設定
+## 本番環境
+### EC2接続
+ssh -i ~/.ssh/Rese-ec2.pem ec2-user@ec2-52-199-49-47.ap-northeast-1.compute.amazonaws.com
+### Dockerビルド
+1. 
 ## デフォルトユーザー
 管理者  
 name: admin  
