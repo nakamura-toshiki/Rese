@@ -51,6 +51,8 @@ AWS　EC2,S3,RDS使用
 ![like](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151919.png)
 ![reservation](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151932.png)
 ![review](https://github.com/nakamura-toshiki/Rese/blob/main/tables/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-04-19%20151951.png)
+## ER図
+![ER図](https://github.com/nakamura-toshiki/Rese/blob/main/.drawio.png)
 # 環境構築
 ## デフォルトユーザー
 管理者  
